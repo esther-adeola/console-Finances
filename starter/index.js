@@ -112,7 +112,19 @@ var month = ''
 for(let i=0; i<85; i++){
 
   var change =finances[i+1][1]-finances[i][1]
-if( change > greatestIncrease)
-  greatestIncrease=Math.max(greatestIncrease, change)
+if( change >= greatestIncrease)
+  greatestIncrease=change;
+month = finances[i+1][0]
 }
-console.log( 'Greatest Increase in Profits/Losses:')
+console.log( "Greatest Increase in Profits/Losses:" + month+"($" +greatestIncrease + ")")
+
+var greatestDecrease=0
+var monthD = ''
+for(let i=0; i<85; i++){
+
+  var change =finances[i+1][1]-finances[i][1]
+if( change <= greatestDecrease)
+  greatestDecrease=change;
+monthD = finances[i+1][0]
+}
+console.log( "Greatest Decrease in Profits/Losses:" + monthD+"($" +greatestDecrease + ")")
